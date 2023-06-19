@@ -1,28 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./dist/**/*.{html,js}"],
+  darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
         'lofi': "url('../dist/img/lofi-lg.png')",
         'front': "url('../dist/img/front.jpg')",
         'lofi': "url('../dist/img/lofi-lg.png')",
-        'lofi': "url('../dist/img/lofi-lg.png')",
-        'lofi': "url('../dist/img/lofi-lg.png')",
-        'lofi': "url('../dist/img/lofi-lg.png')",
-        'lofi': "url('../dist/img/lofi-lg.png')",
-        'lofi': "url('../dist/img/lofi-lg.png')",
       },
       backgroundColor: theme => ({
         ...theme('colors'), 
-        "primary": '#CC2D4A',
-        "secondary": '#8FA206',
-        'terciary': '#61AEC9'
+        "general": '#14213D',
+        "casual": '#2b467d',
+        'destacado': '#466EC3',
+        "claro": '#d4ddf1'
       }),
       textColor: {
-        "primary": '#CC2D4A',
-        "secondary": '#8FA206',
-        'terciary': '#61AEC9'
+        "texto": '#E8EDF8',
+        "titulo": '#A3B6E1',
+        'hover': '#466EC3',
+        "claro": '#14213d',
       },
       fontFamily: {
         Montserrat: [

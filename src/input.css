@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+.Card {
+    @apply
+    h-80
+    pb-12
+    lg:pb-6
+    shadow-md 
+    rounded-t-lg 
+    flex-none 
+    transform 
+    transition 
+    hover:-translate-y-3 
+    hover:shadow-xl;
+  }
+  
