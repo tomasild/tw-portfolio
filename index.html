@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./output.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://kit.fontawesome.com/e8e1e6fbb0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+  <title>Tw-tomasild</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header
+    class="hidden lg:block text-white bg-general bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg body-font fixed w-full z-50">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <div class="flex items-center justify-center h-18">
+        <label for="toggle" class="relative flex items-center justify-center h-10 w-28 cursor-pointer">
+          <input id="toggle" type="checkbox" class="peer sr-only">
+          <span class="h-10 absolute inset-0 rounded-full bg-black transition peer-checked:bg-destacado flex items-center justify-start pl-1">
+            <h1 class=" text-black text-xl font-semibold">tomas</h1>
+          </span>
+          <span id="toggle-circle"
+            class="absolute inset-y-0 left-0 flex items-center justify-center align-middle m-1 h-8 w-10 rounded-full bg-black transition-all peer-checked:left-16">
+            <span id="text-inside-circle" class="w-full h-full flex items-center justify-center p-2">
+              <h1 class="text-xl text-hover">ild</h1>
+            </span>
+          </span>
+        </label>
+      </div>
+
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 text-white hover:text-hover" href="#inicio">Inicio</a>
+        <a class="mr-5 text-white hover:text-hover" href="#sobremi">Sobre mi</a>
+        <a class="mr-5 text-white hover:text-hover" href="#formacion">Formación</a>
+        <a class="mr-5 text-white hover:text-hover" href="#proyectos">Proyectos</a>
+        <a class="mr-5 text-white hover:text-hover" href="#contacto">Contacto</a>
+        <a class="mr-5 text-white hover:text-hover" href="#blog">Blog</a>
+      </nav>
+
+      <div class=" w-auto flex items-center justify-end pr-1 pl-3 py-1 rounded-xl ml-5">
+        <audio id="audio-player"></audio>
+        <button id="previous-btn" aria-label="Anterior" class="mr-2">
+          <svg class="w-8 h-8" id="Layer_2" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M30.70001,5.01001c-0.5-0.26001-1.09003-0.22003-1.54999,0.09998l-11.63,8V6.33997c0-0.56-0.30005-1.07001-0.80005-1.32996   C16.22998,4.75,15.63,4.78998,15.16998,5.10999L1.15002,14.76001C0.73999,15.04999,0.5,15.51001,0.5,16   s0.23999,0.95996,0.65002,1.23999l14.01996,9.65002c0.26001,0.17999,0.56,0.26996,0.85004,0.26996   c0.23999,0,0.47998-0.06,0.69995-0.16998c0.5-0.26001,0.80005-0.77002,0.80005-1.33002v-6.76996l11.63,8   c0.25,0.17999,0.54999,0.26996,0.84998,0.26996c0.23999,0,0.47998-0.06,0.70001-0.16998   C31.19,26.72998,31.5,26.21997,31.5,25.65997V6.33997C31.5,5.77997,31.19,5.26996,30.70001,5.01001z" fill="#466EC3"/></g></svg>
+        </button>
+        <button id="play-btn" aria-label="Reproducir" class="mr-2">
+          <svg class="w-8 h-8" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="info"/><g id="icons"><path d="M3.9,18.9V5.1c0-1.6,1.7-2.6,3-1.8l12,6.9c1.4,0.8,1.4,2.9,0,3.7l-12,6.9C5.6,21.5,3.9,20.5,3.9,18.9z"  fill="#466EC3" id="play"/></g></svg>
+        </button>
+        <button id="next-btn" aria-label="Siguiente" class="mr-2">
+          <svg class="w-8 h-8" id="Layer_2" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M30.84998,14.76001L16.83002,5.10999C16.37,4.78998,15.77002,4.75,15.28003,5.01001   c-0.49005,0.25995-0.80005,0.76996-0.80005,1.32996v6.77002l-11.63-8C2.39001,4.78998,1.78998,4.75,1.29999,5.01001   C0.81,5.26996,0.5,5.77997,0.5,6.33997v19.32001c0,0.56,0.31,1.07001,0.79999,1.33002   C1.52002,27.09998,1.76001,27.15997,2,27.15997c0.29999,0,0.59998-0.08997,0.84998-0.26996l11.63-8v6.76996   c0,0.56,0.31,1.07001,0.80005,1.33002c0.21997,0.10999,0.45996,0.16998,0.69995,0.16998c0.29004,0,0.59003-0.08997,0.85004-0.26996   l14.01996-9.65002C31.26001,16.95996,31.5,16.48999,31.5,16S31.26001,15.03998,30.84998,14.76001z"  fill="#466EC3"/></g></svg>
+        </button>
+        <div id="song-name"></div>
+      </div>
+    </div>
+  </header>
+
+  <!--TAB BARr-->
+  <div class="fixed bottom-0 left-0 w-full lg:hidden md:block sm:block z-50">
+    <div class="h-14 bg-general bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-lg">
+      <audio id="audio-player"></audio>
+      <ul class="flex h-full">
+        <li class="flex-1 flex flex-col items-center justify-center">
+          <a href="#inicio"><svg class="w-8 h-8" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M511.8 287.6L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L416 100.7V64C416 46.33 430.3 32 448 32H480C497.7 32 512 46.33 512 64V185L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6L511.8 287.6z" fill="#466EC3"/></svg></a>
+        </li>
+        <li class="flex-1 flex flex-col items-center justify-center">
+          <button id="previous-btn2" aria-label="Anterior"><svg class="w-8 h-8" id="Layer_2" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M30.70001,5.01001c-0.5-0.26001-1.09003-0.22003-1.54999,0.09998l-11.63,8V6.33997c0-0.56-0.30005-1.07001-0.80005-1.32996   C16.22998,4.75,15.63,4.78998,15.16998,5.10999L1.15002,14.76001C0.73999,15.04999,0.5,15.51001,0.5,16   s0.23999,0.95996,0.65002,1.23999l14.01996,9.65002c0.26001,0.17999,0.56,0.26996,0.85004,0.26996   c0.23999,0,0.47998-0.06,0.69995-0.16998c0.5-0.26001,0.80005-0.77002,0.80005-1.33002v-6.76996l11.63,8   c0.25,0.17999,0.54999,0.26996,0.84998,0.26996c0.23999,0,0.47998-0.06,0.70001-0.16998   C31.19,26.72998,31.5,26.21997,31.5,25.65997V6.33997C31.5,5.77997,31.19,5.26996,30.70001,5.01001z" fill="#466EC3"/></g></svg></button>
+        </li>
+        <li class="flex-1 flex flex-col items-center justify-center">
+          <button id="play-btn2" aria-label="Reproducir"><svg class="w-8 h-8" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="info"/><g id="icons"><path d="M3.9,18.9V5.1c0-1.6,1.7-2.6,3-1.8l12,6.9c1.4,0.8,1.4,2.9,0,3.7l-12,6.9C5.6,21.5,3.9,20.5,3.9,18.9z"  fill="#466EC3"" id="play"/></g></svg></button>
+        </li>
+        <li class="flex-1 flex flex-col items-center justify-center">
+          <button  id="next-btn2" aria-label="Siguiente"><svg class="w-8 h-8" id="Layer_2" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M30.84998,14.76001L16.83002,5.10999C16.37,4.78998,15.77002,4.75,15.28003,5.01001   c-0.49005,0.25995-0.80005,0.76996-0.80005,1.32996v6.77002l-11.63-8C2.39001,4.78998,1.78998,4.75,1.29999,5.01001   C0.81,5.26996,0.5,5.77997,0.5,6.33997v19.32001c0,0.56,0.31,1.07001,0.79999,1.33002   C1.52002,27.09998,1.76001,27.15997,2,27.15997c0.29999,0,0.59998-0.08997,0.84998-0.26996l11.63-8v6.76996   c0,0.56,0.31,1.07001,0.80005,1.33002c0.21997,0.10999,0.45996,0.16998,0.69995,0.16998c0.29004,0,0.59003-0.08997,0.85004-0.26996   l14.01996-9.65002C31.26001,16.95996,31.5,16.48999,31.5,16S31.26001,15.03998,30.84998,14.76001z"  fill="#466EC3"/></g></svg></button>
+        </li>
+        <li class="flex-1 flex flex-col items-center justify-center">
+          <button id="dark-sm"><svg class="w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title/><path d="M20.21,15.32A8.56,8.56,0,1,1,11.29,3.5a.5.5,0,0,1,.51.28.49.49,0,0,1-.09.57A6.46,6.46,0,0,0,9.8,9a6.57,6.57,0,0,0,9.71,5.72.52.52,0,0,1,.58.07A.52.52,0,0,1,20.21,15.32Z" fill="#466EC3"/></svg></button>
+        </li>
+      </ul>
+      <div id="song-name"></div>
+    </div>
+  </div>
+
+  <!--BG VIDEO-->
+  <section id="video-background">
+    <video id="video-player"></video>
+  </section>
+
+  <!--HERO-->
+  <section id="inicio" class="flex items-center justify-center h-screen mx-5 lg:mx-32">
+    <div class="w-full flex flex-col justify-center pl-8 lg:w-1/2">
+      <span class="fade-in1 text-hover font-bold text-xl lg:text-3xl md:text-2xl">@tomas.ild</span>
+      <h1 class="fade-in2 text-white text-3xl font-bold mt-4 lg:text-6xl md:text-4xl">Bienvenido a mi portfolio</h1>
+      <p class="fade-in2 text-white text-lg mt-4 lg:text-2xl md:text-xl">Mi nombre es Tomás, soy un desarrollador web
+        con enfoque
+        frontend y especialista en Marketing</p>
+      <div class="fade-in3 mt-4">
+        <span class="mr-3">
+          <a href="https://www.linkedin.com/in/tomaslangerduran/"><i
+              class="fa fa-linkedin-square text-white text-2xl lg:text-4xl md:text-3xl hover:text-hover"
+              aria-hidden="true"></i></a>
+        </span>
+        <span class="mr-3">
+          <a href="https://github.com/tomasild"><i
+              class="fa fa-github-square text-white text-2xl lg:text-4xl md:text-3xl hover:text-hover"
+              aria-hidden="true"></i></a>
+        </span>
+        <span class="mr-3">
+          <a href="https://twitter.com/tomas_ild"><i
+              class="fa fa-twitter-square text-white text-2xl lg:text-4xl md:text-3xl hover:text-hover"
+              aria-hidden="true"></i></a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!--SOBRE MI-->
+  <section id="sobremi" class=" bg-claro dark:text-white dark:bg-general body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col h-auto">
+      <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-5 text-claro dark:text-titulo">Sobre mi</h1>
+        <p class="text-base md:text-lg w-full leading-relaxed text-justify text-claro dark:text-gray-300 lg:w-5/6 lg:text-lg">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          Como profesional estoy en constante búsqueda de expandir mis conocimientos y mantenerme actualizado acerca de la innovación dentro de la industria tecnológica y del marketing. Tengo un especial interés en cómo aplicar la inteligencia artificial en estos campos con el objeto de obtener las ventajas que ésta trae. Lo anterior me motivó a estudiar Desarrollo Web en donde puedo aplicar y visualizar directamente los conocimientos que voy adquiriendo. <br><br><i class="fa fa-users" aria-hidden="true"></i> Además me encuentro constantemente asistiendo a charlas, webinars y eventos con la finalidad de conocer especialistas y personas con intereses similares, de esta forma puedo mantenerme constantemente actualizado en los tópicos que más me atraen.
+        </p>
+      </div>
+
+      <div id:"sobremi2" class="flex flex-wrap mx-auto mb-7 md:mb-10 lg:mb-14">
+        <a id="link1" onclick="activateLink('link1')"
+          class="cursor-pointer sm:px-6 py-3 w-1/2 sm:w-auto justify-center text-center title-font font-medium inline-flex items-center leading-none text-claro dark:text-white tracking-wider lg:border-2 lg:rounded-l-2xl lg:border-gray-500">
+          <h3 class="text-xs  lg:text-lg">Accesibilidad Web</h3>
+        </a>
+        <a id="link2" onclick="activateLink('link2')"
+          class="cursor-pointer sm:px-6 py-3 w-1/2 sm:w-auto justify-center text-center  title-font font-medium inline-flex items-center leading-none text-claro dark:text-white tracking-wider lg:border-t-2 lg:border-b-2 lg:border-gray-500">
+          <h3 class="text-xs lg:text-lg">Inteligencia Artificial</h3>
+        </a>
+        <a id="link3" onclick="activateLink('link3')"
+          class="cursor-pointer sm:px-6 py-3 w-1/2 sm:w-auto justify-center text-center   title-font font-medium inline-flex items-center leading-none text-claro dark:text-white tracking-wider lg:border-b-2  lg:border-t-2 lg:border-l-2 lg:border-gray-500">
+          <h3 class="text-xs lg:text-lg">Frontend Developer</h3>
+        </a>
+        <a id="link4" onclick="activateLink('link4')"
+          class="cursor-pointer sm:px-6 py-3 w-1/2 sm:w-auto justify-center text-center  title-font font-medium inline-flex items-center leading-none text-claro dark:text-white tracking-wider lg:border-2 lg:rounded-r-2xl lg:border-gray-500">
+          <h3 class="text-xs lg:text-lg">Inglés Técnico</h3>
+        </a>
+      </div>
+      <div class="content-container w-5/6 flex justify-center items-center self-center"></div>
+    </div>
+  </section>
+
+  <!--FORMACIÓN-->
+  <section id="formacion" class="text-claro bg-claro dark:text-gray-400 dark:bg-general pt-10 body-font">
+    <h1 class="flex text-3xl text-claro dark:text-titulo text-center justify-center pb-14">Formación</h1>
+    <div class="container px-5 mx-auto flex flex-wrap">
+      <div class="flex flex-wrap w-full">
+        <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+
+          <div class="flex relative pb-12">
+            <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+              <div class="h-full w-1 bg-destacado pointer-events-none"></div>
+            </div>
+            <div
+              class="flex-shrink-0 w-10 h-10 rounded-full bg-destacado inline-flex items-center justify-center text-white relative z-10">
+              <i class="fa fa-rocket" aria-hidden="true"></i></div>
+            <div class="flex-grow pl-4">
+              <h2 class="font-medium title-font text-lg lg:text-xl text-claro dark:text-white mb-1 tracking-wider">Ingenieria en
+                Marketing</h2>
+              <p class="leading-relaxed text-base text-claro dark:text-white font-semibold">Instituto profesional DuocUC</p>
+              <span>Titulado el año 2017 con distinción<br>2012-2017</span>
+            </div>
+          </div>
+
+          <div class="flex relative pb-12">
+            <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+              <div class="h-full w-1 bg-destacado pointer-events-none"></div>
+            </div>
+            <div
+              class="flex-shrink-0 w-10 h-10 rounded-full bg-destacado inline-flex items-center justify-center text-white relative z-10">
+              <i class="fa fa-terminal" aria-hidden="true"></i></div>
+            <div class="flex-grow pl-4">
+              <h2 class="font-medium title-font text-lg lg:text-xl text-claro dark:text-white mb-1 tracking-wider">Fullstack Developer
+              </h2>
+              <p class="leading-relaxed  text-base text-claro dark:text-white font-semibold">Certificado del programa One de Alura Latam <br>14/02/2023
+              </p>
+            </div>
+          </div>
+
+          <div class="flex relative pb-12">
+            <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+              <div class="h-full w-1 bg-gray-400 dark:bg-gray-800 pointer-events-none"></div>
+            </div>
+            <div
+              class="flex-shrink-0 w-10 h-10 rounded-full bg-destacado inline-flex items-center justify-center text-white relative z-10">
+              <i class="fa fa-cubes" aria-hidden="true"></i></div>
+            <div class="flex-grow pl-4">
+              <h2 class="font-medium title-font text-lg lg:text-xl text-claro dark:text-white mb-1 tracking-wider">Frameworks y Librerias</h2>
+              <p class="leading-relaxed text-base text-claro dark:text-white font-semibold">Tailwind, GSAP, React y React Native <br>En formación.</p>
+            </div>
+          </div>
+
+          <div class="flex relative pb-12">
+            <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+              <div class="h-full w-1 bg-gray-400 dark:bg-gray-800 pointer-events-none"></div>
+            </div>
+            <div
+              class="flex-shrink-0 w-10 h-10 rounded-full bg-destacado inline-flex items-center justify-center text-white relative z-10">
+              <i class="fa fa-desktop" aria-hidden="true"></i></div>
+            <div class="flex-grow pl-4">
+              <h2 class="font-medium title-font text-lg lg:text-xl text-claro dark:text-white mb-1 tracking-wider">Frontend</h2>
+              <p class="leading-relaxed text-base text-claro dark:text-white font-semibold">Estudio de herramientas fundamentales como
+                preprocesadores, herramientas de construcción, pruebas unitarias, manejo de APIs, optimización del
+                rendimiento, etc.</p>
+            </div>
+          </div>
+
+          <div class="flex relative">
+            <div
+              class="flex-shrink-0 w-10 h-10 rounded-full bg-destacado inline-flex items-center justify-center text-white relative z-10">
+              <i class="fa fa-book" aria-hidden="true"></i></div>
+            <div class="flex-grow pl-4">
+              <h2 class="font-medium title-font text-lg lg:text-xl text-claro dark:text-white mb-1 tracking-wider">Inglés</h2>
+              <p class="leading-relaxed text-base text-claro dark:text-white font-semibold">Aspiro a dominar el inglés técnico, ya que sé que será un impulso no solo para mi carrera profesional, sino también en mi desarrollo personal..</p>
+            </div>
+          </div>
+        </div>
+        <img class="hidden lg:block md:block lg:w-3/5 md:w-1/2 object-contain object-center rounded-xl md:mt-0 mt-12 " src="img/formacion.png"
+          alt="step">
+      </div>
+    </div>
+  </section>
+
+  <!--HABILIDADES-->
+  <section id="habilidades" class="p-6 bg-claro dark:bg-general pb-16">
+    <h1 class="text-3xl text-claro dark:text-titulo text-center mb-12 mt-12 font-semibold">Habilidades</h1>
+    <div
+      class="w-auto h-72 flex space-x-4 overflow-x-auto items-start justify-start overscroll-x-contain overflow-y-hidden lg:w-5/6 lg:mx-auto lg:flex lg:justify-start">
+      <!--card 1-->
+      <div class="Card">
+        <div class="w-full h-3/5 rounded-t-lg bg-casual dark:bg-transparent">
+          <svg class="w-full h-full p-4" viewBox="0 0 128 128">
+            <path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"></path>
+            <path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"></path>
+            <path fill="#EBEBEB"
+              d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z">
+            </path>
+            <path fill="#fff"
+              d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z">
+            </path>
+          </svg>
+        </div>
+        <div class="w-full h-auto p-3 bg-casual bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-b-lg">
+          <h3 class="text-white text-bold text-lg text-center">HTML</h3>
+          </div>
+      </div>
+      <!--card 2-->
+      <div class="Card">
+        <div class="w-full h-3/5 rounded-t-lg bg-casual dark:bg-transparent">
+          <svg class="w-full h-full p-4" viewBox="0 0 128 128">
+            <path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543-45.119-12.526z">
+            </path>
+            <path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16v106.49z"></path>
+            <path fill="#fff"
+              d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114h-30.95V51.429z"></path>
+            <path fill="#EBEBEB"
+              d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018v-14.39z">
+            </path>
+            <path fill="#fff"
+              d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881H81.127z"></path>
+            <path fill="#EBEBEB"
+              d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711h34.646zm-.047 27.996v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711h16.447z">
+            </path>
+          </svg>
+        </div>
+        <div
+          class="w-full h-auto p-3 bg-destacado bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-b-lg">
+          <h3 class="text-white text-bold text-lg text-center">CSS</h3>
+        </div>
+      </div>
+      <!--card 3-->
+      <div class="Card">
+        <div class="w-full h-3/5 rounded-t-lg bg-casual dark:bg-transparent">
+          <svg class="w-full h-full p-4" viewBox="0 0 128 128">
+            <path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z"></path>
+            <path fill="#323330"
+              d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z">
+            </path>
+          </svg>
+        </div>
+        <div class="w-full h-auto p-3 bg-casual bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-b-lg">
+          <h3 class="text-white text-bold text-lg text-center">Javascript</h3>
+        </div>
+      </div>
+      <!--card 4-->
+      <div class="Card">
+        <div class="w-full h-3/5 rounded-t-lg bg-casual dark:bg-transparent">
+          <svg class="w-full h-full p-4" viewBox="0 0 128 128">
+            <defs>
+              <linearGradient id="tailwindcss-original-wordmark-a" gradientUnits="userSpaceOnUse" x1="2.21" y1="511.596"
+                x2="3.211" y2="511.596" gradientTransform="matrix(27.16757 5.6391 -9.3985 16.30055 4747.487 -8290.643)">
+                <stop offset="0" stop-color="#2298bd"></stop>
+                <stop offset="1" stop-color="#0ed7b5"></stop>
+              </linearGradient>
+            </defs>
+            <path
+              d="M13.227 56.074c-3.528 0-5.727 1.778-6.602 5.301 1.324-1.773 2.875-2.426 4.625-1.977 1 .25 1.727.977 2.523 1.801 1.301 1.324 2.801 2.852 6.079 2.852 3.523 0 5.722-1.778 6.597-5.301-1.324 1.773-2.875 2.426-4.625 1.977-1-.25-1.722-.977-2.523-1.801-1.301-1.324-2.801-2.852-6.074-2.852zM6.602 64C3.074 64 .875 65.773 0 69.3c1.324-1.777 2.875-2.425 4.625-1.976 1 .25 1.727.977 2.523 1.801 1.301 1.324 2.801 2.852 6.079 2.852 3.523 0 5.722-1.778 6.597-5.301-1.324 1.773-2.875 2.426-4.625 1.972-1-.25-1.722-.972-2.523-1.796C11.398 65.523 9.898 64 6.602 64zm0 0"
+              fill="url(#tailwindcss-original-wordmark-a)"></path>
+            <path
+              d="M39.676 62.75h-2.301v4.477c0 1.199.773 1.171 2.3 1.097v1.801c-3.1.375-4.323-.477-4.323-2.898V62.75h-1.704v-1.926h1.704v-2.5l2-.597v3.097h2.296v1.926zm8.8-1.926h2v9.301h-2v-1.352c-.703.977-1.8 1.579-3.25 1.579-2.527 0-4.624-2.153-4.624-4.903 0-2.773 2.097-4.898 4.625-4.898 1.449 0 2.546.597 3.25 1.574zm-2.953 7.625c1.676 0 2.954-1.25 2.954-2.972 0-1.727-1.278-2.977-2.954-2.977-1.671 0-2.949 1.25-2.949 2.977.028 1.722 1.278 2.972 2.95 2.972zm8.301-9.023c-.699 0-1.273-.602-1.273-1.278 0-.699.574-1.273 1.273-1.273.7 0 1.278.574 1.278 1.273.023.676-.579 1.278-1.278 1.278zm-1 10.699v-9.3h2v9.3zm4.324 0V56.551h2v13.574zm15.079-9.3h2.125l-2.926 9.3h-1.977l-1.926-6.273-1.949 6.273h-1.972l-2.926-9.3H62.8l1.8 6.425 1.95-6.426h1.926l1.921 6.426zm4.597-1.4c-.699 0-1.273-.6-1.273-1.277 0-.699.574-1.273 1.273-1.273.7 0 1.278.574 1.278 1.273.023.676-.551 1.278-1.278 1.278zm-1 10.7v-9.3h2v9.3zm9.227-9.55c2.074 0 3.574 1.425 3.574 3.823v5.727h-2v-5.5c0-1.426-.824-2.148-2.074-2.148-1.324 0-2.375.773-2.375 2.671v5h-2v-9.296h2v1.199c.625-1 1.625-1.477 2.875-1.477zm13.125-3.473h2v13.023h-2v-1.352c-.7.977-1.801 1.579-3.25 1.579-2.528 0-4.625-2.153-4.625-4.903 0-2.773 2.097-4.898 4.625-4.898 1.449 0 2.55.597 3.25 1.574zm-2.95 11.347c1.672 0 2.95-1.25 2.95-2.972 0-1.727-1.278-2.977-2.95-2.977-1.675 0-2.953 1.25-2.953 2.977 0 1.722 1.278 2.972 2.954 2.972zm11.672 1.926c-2.796 0-4.921-2.148-4.921-4.898 0-2.778 2.097-4.903 4.921-4.903 1.829 0 3.403.95 4.153 2.403l-1.727 1c-.398-.875-1.324-1.426-2.449-1.426-1.648 0-2.875 1.25-2.875 2.926 0 1.671 1.25 2.921 2.875 2.921 1.125 0 2.023-.574 2.477-1.421l1.722.972c-.75 1.477-2.347 2.426-4.176 2.426zm7.528-7c0 1.7 5 .676 5 4.125 0 1.852-1.625 2.875-3.625 2.875-1.852 0-3.2-.852-3.801-2.176l1.727-1c.296.852 1.046 1.352 2.074 1.352.898 0 1.574-.301 1.574-1.051 0-1.648-5-.727-5-4.05 0-1.75 1.5-2.848 3.398-2.848 1.528 0 2.801.699 3.454 1.921l-1.704.954c-.324-.727-.972-1.051-1.75-1.051-.722-.028-1.347.3-1.347.949zm8.574 0c0 1.7 5 .676 5 4.125 0 1.852-1.625 2.875-3.625 2.875-1.852 0-3.2-.852-3.8-2.176l1.726-1c.3.852 1.05 1.352 2.074 1.352.898 0 1.574-.301 1.574-1.051 0-1.648-5-.727-5-4.05 0-1.75 1.5-2.848 3.403-2.848 1.523 0 2.796.699 3.449 1.921l-1.7.954c-.328-.727-.976-1.051-1.75-1.051-.726-.028-1.351.3-1.351.949zm0 0"
+              fill="#fff"></path>
+          </svg>
+        </div>
+        <div
+          class="w-full h-auto p-3 bg-destacado bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-b-lg">
+          <h3 class="text-white text-bold text-lg text-center">Tailwind CSS</h3>
+        </div>
+      </div>
+      <!--card 5-->
+      <div class="Card">
+        <div class="w-full h-3/5 rounded-t-lg bg-casual dark:bg-transparent">
+          <svg class="w-full h-full p-4" viewBox="0 0 128 128">
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#337BA2"
+              d="M43.257 121.233c.079 1.018.029 2.071.299 3.037.115.408.9.629 1.381.935l.625.401c-.235.137-.469.389-.707.392a165.82 165.82 0 01-5.598.002c-.248-.004-.491-.237-.735-.364.198-.143.388-.391.597-.408 1.251-.105 1.632-.865 1.626-1.989-.011-2.066-.006-4.134.003-6.202.005-1.152-.322-1.993-1.679-2.045-.188-.008-.366-.296-.548-.453.182-.111.366-.321.546-.318 2.39.029 4.79-.024 7.167.177 1.873.159 3.107 1.455 3.234 2.949.138 1.639-.703 2.764-2.605 3.486l-.729.272c1.225 1.158 2.31 2.29 3.516 3.272.535.437 1.293.697 1.989.817 1.393.238 2.149-.361 2.187-1.742.061-2.229.032-4.461.011-6.691-.01-1.022-.449-1.697-1.589-1.753-.215-.01-.42-.253-.629-.388.239-.14.478-.4.715-.399 2.432.02 4.875-.055 7.291.161 4.123.366 6.42 3.797 5.214 7.588-.735 2.312-2.495 3.619-4.759 3.773-3.958.27-7.938.215-11.909.243-.316.002-.706-.341-.944-.623-.914-1.085-1.776-2.213-2.668-3.316-.27-.334-.571-.641-.858-.961l-.444.147zm13.119-5.869c0 2.785-.034 5.484.036 8.18.011.414.41 1.039.78 1.187 1.457.581 3.812-.368 4.47-1.842.881-1.973.988-4.05-.203-5.922-1.175-1.847-3.132-1.663-5.083-1.603zm-13.021 4.561c1.262.032 2.653.313 3.192-1.073.302-.777.234-1.982-.183-2.69-.633-1.076-1.906-.888-3.01-.752l.001 4.515z">
+            </path>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#3279A1"
+              d="M96.77 119.35c.834-.18 1.661-.154 2.198-.537.451-.32.563-1.116.908-1.886.199.357.386.539.39.724.025 1.38.03 2.761 0 4.141-.005.216-.226.427-.347.641-.136-.114-.339-.2-.399-.346-.733-1.771-.729-1.772-2.843-1.583.309 1.382-.763 3.149.89 4.058.843.463 2.203.371 3.189.068.841-.256 1.48-1.171 2.212-1.798v3.096c-.405.036-.712.086-1.021.086-4.141.006-8.282-.012-12.422.019-.714.006-1.197-.174-1.633-.773-.857-1.182-1.799-2.302-2.725-3.432-.232-.283-.534-.508-1.021-.962 0 1.154-.042 1.981.012 2.802.056.858.469 1.427 1.418 1.534.279.032.529.325.792.5-.271.105-.54.298-.812.303-1.827.026-3.653.025-5.48.001-.28-.004-.558-.173-.866-.275l.156-.303c2.244-.906 2.25-.906 2.248-3.508a343.88 343.88 0 00-.039-4.87c-.017-1.121-.321-2.01-1.689-2.058-.197-.007-.384-.287-.577-.441.226-.113.453-.325.678-.323 2.311.022 4.635-.054 6.93.16 2.512.234 4.065 2.329 3.132 4.257-.51 1.053-1.688 1.783-2.725 2.818.984.9 2.117 2.194 3.491 3.135 1.941 1.33 3.268.571 3.317-1.748.041-1.947-.007-3.896-.015-5.845-.004-1.155-.361-1.994-1.717-2.013-.185-.003-.367-.2-.586-.33.705-.52 7.499-.709 10.448-.332l.19 3.214-.333.136c-.686-.717-.601-2.199-2.02-2.204-1.084-.005-2.168-.119-3.332-.189.003 1.356.003 2.59.003 4.063zm-12.647.566c2.61.105 3.646-.603 3.584-2.364-.061-1.698-1.195-2.383-3.584-2.121v4.485z">
+            </path>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#3179A1"
+              d="M11.555 120.682c.996-2.947 1.979-5.897 3.003-8.834.141-.404.486-.737.737-1.104.248.378.587.725.729 1.14.931 2.719 1.817 5.451 2.722 8.179.072.219.165.43.375.969.928-2.813 1.787-5.308 2.564-7.829.27-.873-.081-1.504-1.097-1.618-.335-.039-.66-.17-1.051-.274.676-.749 5.957-.804 6.827-.108-.236.112-.424.271-.618.279-1.65.064-2.414 1.097-2.884 2.521-1.258 3.81-2.54 7.611-3.817 11.415-.133.395-.3.778-.452 1.166l-.421.03-3.579-10.821-3.619 10.788-.354.022c-.185-.401-.412-.79-.547-1.207-1.167-3.581-2.319-7.167-3.474-10.751-.495-1.539-.99-3.069-3.012-3.167-.132-.006-.253-.229-.38-.35.158-.13.316-.373.476-.375 2.272-.024 4.546-.024 6.818.001.158.001.313.247.47.379-.169.126-.319.309-.508.367-1.82.55-1.951.761-1.378 2.526.723 2.233 1.468 4.457 2.204 6.686l.266-.03z">
+            </path>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#3279A1"
+              d="M65.484 111.25c.279-.241.435-.494.587-.491 2.957.044 5.938-.093 8.864.247 2.768.321 4.301 2.919 3.466 5.359-.748 2.189-2.593 2.874-4.68 3.064-.881.081-1.776.013-2.824.013.093 1.453.14 2.78.275 4.098.113 1.114.863 1.56 1.923 1.65.239.021.457.288.684.442-.25.126-.498.36-.75.363-2.191.029-4.384.028-6.575.002-.263-.003-.523-.219-.784-.336.218-.165.432-.463.656-.472 1.463-.056 2.012-.964 2.03-2.235.044-3.081.04-6.162.002-9.243-.016-1.31-.649-2.148-2.072-2.206-.212-.008-.422-.13-.802-.255zm5.523 6.706c2.682.278 3.703.022 4.349-1.167.648-1.192.65-2.439-.116-3.566-1.059-1.559-2.679-1.098-4.233-1.154v5.887z">
+            </path>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#3279A1"
+              d="M31.076 126.463c-2.396-.104-4.348-.856-5.794-2.647-2.053-2.542-1.741-5.994.711-8.192 2.645-2.37 7.018-2.472 9.733-.171 1.838 1.559 2.709 3.533 2.111 5.953-.675 2.73-2.601 4.192-5.218 4.856-.546.137-1.122.149-1.543.201zm4.544-6.249l-.224-.147c-.149-.709-.236-1.439-.458-2.125-.642-1.971-1.986-2.945-3.963-2.949-1.97-.004-3.295.975-3.939 2.967-.572 1.771-.498 3.526.383 5.18 1.315 2.468 4.829 2.931 6.549.736.802-1.023 1.116-2.43 1.652-3.662z">
+            </path>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#3279A1"
+              d="M122.748 114.317l.893-.782v4.376l-.259.195c-.209-.295-.498-.562-.615-.891-.591-1.655-1.865-2.553-3.319-2.117-.499.149-1.099.649-1.232 1.11-.109.376.285 1.12.671 1.374 1.008.664 2.131 1.156 3.214 1.703 2.356 1.192 3.198 2.845 2.401 4.736-.809 1.921-3.263 2.915-5.462 2.173-.606-.206-1.167-.544-1.728-.811l-.857 1.126-.379-.116c0-1.477-.009-2.954.015-4.431.002-.143.215-.282.33-.423.18.218.448.41.527.66.523 1.656 1.53 2.756 3.325 2.94 1.023.105 2.023-.021 2.378-1.187.324-1.067-.42-1.669-1.219-2.124-.879-.5-1.808-.909-2.708-1.37-.395-.203-.798-.404-1.153-.665-1.257-.927-1.753-2.263-1.381-3.618.332-1.211 1.523-2.237 2.997-2.28 1.091-.031 2.195.25 3.561.422zm-16.269 11.027c-.166.33-.258.607-.429.821-.103.128-.356.25-.49.208-.127-.04-.262-.294-.265-.456-.021-1.299-.021-2.599.001-3.896.002-.159.178-.314.274-.471.184.117.446.193.537.362.169.314.208.696.356 1.024.668 1.482 2.021 2.409 3.573 2.184.649-.093 1.45-.586 1.772-1.138.434-.741-.086-1.504-.814-1.925-.979-.566-1.993-1.075-3.009-1.571-2.297-1.121-3.266-2.972-2.443-4.719.818-1.737 3.33-2.46 5.429-1.556.256.11.499.25.7.354l1.078-.886c.113.317.185.426.186.535.008 1.216.005 2.431.005 3.646l-.317.212c-.211-.27-.504-.509-.619-.814-.573-1.532-1.48-2.381-2.81-2.219-.624.075-1.419.504-1.726 1.018-.45.755.2 1.361.885 1.729.963.519 1.949.992 2.926 1.483 2.418 1.213 3.269 2.898 2.434 4.824-.813 1.876-3.346 2.847-5.517 2.077-.564-.199-1.087-.52-1.717-.826z">
+            </path>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#fff"
+              d="M65.261 1.395C38.48.917 16.103 22.648 16.096 49c-.008 27.11 21.338 48.739 48.077 48.699 26.49-.039 47.932-21.587 47.932-48.167C112.104 23.384 90.76 1.85 65.261 1.395zm-1.148 93.887c-25.326.006-45.694-20.529-45.693-46.067.001-24.88 20.685-45.48 45.674-45.489 25.432-.008 45.695 20.654 45.687 46.587-.008 24.483-20.807 44.964-45.668 44.969zm24.395-59.347c-.994-1.638-2.216-3.227-2.778-5.013-.64-2.032-1.171-4.345-.832-6.382.576-3.454 3.225-5.169 6.812-5.497C72.086.83 41.248 7.349 29.885 27.138c4.374-.203 8.55-.468 12.729-.524.791-.011 2.1.657 2.286 1.277.416 1.385-.748 1.868-1.986 1.963-1.301.102-2.604.199-4.115.314l14.935 44.494c.359-.587.507-.752.572-.945 2.762-8.255 5.54-16.505 8.232-24.784.246-.755.124-1.755-.146-2.531-1.424-4.111-3.13-8.133-4.379-12.294-.855-2.849-1.988-4.692-5.355-4.362-.574.056-1.273-1.178-1.916-1.816.777-.463 1.548-1.316 2.332-1.328a659.24 659.24 0 0120.572.006c.786.013 1.557.889 2.335 1.364-.681.622-1.267 1.554-2.063 1.794-1.276.385-2.691.312-4.218.448l14.953 44.484c2.266-7.524 4.374-14.434 6.422-21.36 1.83-6.182.74-11.957-2.567-17.403zM52.719 88.149c-.092.267-.097.563-.168 1.007 8.458 2.344 16.75 2.175 25.24-.685l-12.968-35.52c-4.151 12.064-8.131 23.63-12.104 35.198zm-6.535-1.606L26.646 32.947c-8.814 17.217-2.109 43.486 19.538 53.596zm54.452-55.403c-.27 2.994-.082 6.327-.941 9.362-2.023 7.152-4.496 14.181-6.877 21.229-2.588 7.66-5.28 15.286-7.927 22.927 12.437-7.372 19.271-18.253 20.359-32.555.62-8.14-2.188-19.412-4.614-20.963z">
+            </path>
+          </svg>
+        </div>
+        <div class="w-full h-auto p-3 bg-casual bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-b-lg">
+          <h3 class="text-white text-bold text-lg text-center">Wordpress</h3>
+        </div>
+      </div>
+      <!--card 6-->
+      <div class="Card">
+        <div class="w-full h-3/5 rounded-t-lg bg-casual dark:bg-transparent">
+          <svg class="w-full h-full p-4" viewBox="0 0 128 128">
+            <path fill="#7f54b3"
+              d="M116.3 89.1H11.7C5.2 89.1 0 83.9 0 77.4v-40C0 31 5.2 25.8 11.7 25.8h104.7c6.4 0 11.7 5.2 11.7 11.7v40c-.1 6.4-5.3 11.6-11.8 11.6z">
+            </path>
+            <path fill="#FFF"
+              d="M13.8 76.7s2.8 11.8 8.5 3.9 11.2-20.3 11.2-20.3.4-3.1 2 3.7S44 80 44 80s6.3 7.9 8.9-.4c-1-11 2.8-31 6.7-40.6 1.6-8.5-7.3-6.1-8.1-4.1s-6.3 14.8-6.7 28.2c0 0-4.7-12.8-5.1-17.4-.4-4.7-5.3-5.9-8.1-1.4S20.3 66.2 20.3 66.2l-5.5-28.4s-5.5-7.3-8.7 1.6c0 0 5.7 34.9 7.7 37.3zM87 45.7c-8.5-14.2-21.1-3.4-21.1-3.4s-9.6 11.1-5.3 26.2c6.9 14.9 16.6 8.3 19.2 7.1 2.7-1.3 14.1-14.3 7.2-29.9zm-6.5 12.5c0 5.9-4.9 11.4-8.9 10.2-2.2-1.3-3.6-4.8-3.6-10.8 2-9.7 6.4-11 8.7-10.8 4.3 2.3 4.1 7.4 3.8 11.4zM118.9 45.7c-8.5-14.2-21.1-3.4-21.1-3.4s-9.6 11.1-5.3 26.2c6.9 14.9 16.6 8.3 19.2 7.1 2.6-1.3 14.1-14.3 7.2-29.9zm-6.5 12.5c0 5.9-4.9 11.4-8.9 10.2-2.2-1.3-3.6-4.8-3.6-10.8 2-9.7 6.4-11 8.7-10.8 4.2 2.3 4 7.4 3.8 11.4z">
+            </path>
+            <path fill="#7f54b3" d="M61.3 89.1l22.3 13.1-4.7-13.1-12.8-3.6z"></path>
+          </svg>
+        </div>
+        <div
+          class="w-full h-auto p-3 bg-destacado bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-b-lg">
+          <h3 class="text-white text-bold text-lg text-center">Woocommerce</h3>
+        </div>
+      </div>
+      <!--card 7-->
+      <div class="Card">
+        <div class="w-full h-3/5 rounded-t-lg bg-casual dark:bg-transparent">
+          <svg class="w-full h-full p-4" viewBox="0 0 128 128">
+            <path fill="#F34F29"
+              d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.784-3.778-9.905 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333 3.264 58.123a8.133 8.133 0 000 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 00-.001-11.501z">
+            </path>
+          </svg>
+        </div>
+        <div class="w-full h-auto p-3 bg-casual bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-b-lg">
+          <h3 class="text-white text-bold text-lg text-center" text-center>Git</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--PROYECTOS-->
+  <section id="proyectos" class="px-4 py-24 mx-auto w-5/6 h-full">
+    <h1 class="mb-2 text-3xl font-extrabold leading-tight text-titulo pb-14">Proyectos</h1>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+
+      <div class="bg-destacado dark:bg-general bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl">
+        <a href="#">
+          <img src="img/clinica.jpg" class="object-contain lg:object-cover w-full h-auto lg:h-56 mb-5 bg-center rounded-t-xl" alt="Kutty"
+            loading="lazy" />
+        </a>
+        <div class="pl-4 pr-4">
+          <h2 class="mb-2 text-lg font-semibold text-emerald-300">
+            <a href="#" class="text-white hover:text-hover">Proestheticfit</a>
+          </h2>
+          <p class="mb-3 text-sm font-normal text-white">
+            Proyecto hecho a medida mediante una estrecha comunicación con el cliente para clínica estética ubicada en Santiago de Chile.</p>
+          <p class="mb-3 text-sm font-normal text-white">
+            <a href="https://tomasild.github.io/clinica_estetica/" class="font-medium text-white hover:text-hover">Deploy</a>
+            • Junio, 2023
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-destacado dark:bg-general bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl">
+        <a href="#">
+          <img src="img/blog.jpg" class="object-contain lg:object-cover w-full h-auto lg:h-56 mb-5 bg-center rounded-t-xl" alt="Kutty"
+            loading="lazy" />
+        </a>
+        <div class="pl-4 pr-4">
+          <h2 class="mb-2 text-lg font-semibold text-emerald-300">
+            <a href="#" class="text-white hover:text-hover">IA en Español</a>
+          </h2>
+          <p class="mb-3 text-sm font-normal text-white">
+            Blog desarrollado con Wordpress para ayudar a las personas a alfabetizarse digitalmente y aprender acerca de inteligencia artificial (IA).
+          </p>
+          <p class="mb-3 text-sm font-normal text-white">
+            <a href="#" class="font-medium text-white hover:text-hover">Blog</a>
+            • Junio , 2023
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-destacado dark:bg-general bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl">
+        <a href="#">
+          <img src="img/portfolio.jpg" class="object-contain lg:object-cover w-full h-auto lg:h-56 mb-5 bg-center rounded-t-xl" alt="Kutty"
+            loading="lazy" />
+        </a>
+        <div class="pl-4 pr-4">
+          <h2 class="mb-2 text-lg font-semibold text-emerald-300">
+            <a href="#" class="text-white hover:text-hover">Portfolio</a>
+          </h2>
+          <p class="mb-3 text-sm font-normal text-white">
+            Primer Portfolio profesional desarrollado por <strong>@tomas.ild</strong> que estas visualizando en estos momentos.
+          </p>
+          <p class="mb-3 text-sm font-normal text-white">
+            <a href="#inicio" class="font-medium text-white hover:text-hover">Portfolio profesional</a>
+            • Junio 19, 2023
+          </p>
+        </div>
+      </div>
+      <div>
+  </section>
+
+  <!--CONTACTO-->
+  <section id="contacto" class="text-gray-400 bg-destacado dark:bg-general bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg body-font relative">
+    <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+      <div class="lg:w-2/3 md:w-1/2 bg-lofi bg-cover rounded-xl overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+        <div class=" bg-destacado dark:bg-general bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg  relative flex flex-wrap py-6 rounded-xl">
+          <div class="lg:w-1/2 px-6">
+            <h2 class="title-font font-semibold text-white tracking-widest text-xs">CONTACTO</h2>
+            <p class="mt-1 text-white">Si tienes consultas, feedbacks o recomendaciones no dudes en enviarme un mensaje</p>
+          </div>
+          <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+            <h2 class="title-font font-semibold text-white tracking-widest text-xs">EMAIL</h2>
+            <a class="text-white leading-relaxed">tomas.ild.work@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+        <h2 class="text-white text-lg mb-1 font-medium title-font">Contacto</h2>
+        <p class="leading-relaxed mb-5 text-white dark:text-gray-400">Todos los mensajes serán leidos y respondidos a la brevedad.</p>
+
+        <form id="contact-form" action="https://formspree.io/f/xdovqplz" method="post">
+          <div class="relative mb-4">
+            <label for="name" class="leading-7 text-sm text-white dark:text-gray-400">Nombre</label>
+            <input type="text" id="name" name="name" pattern="[a-zA-Z\s]{4,30}"
+              class="w-full bg-claro dark:bg-gray-800 rounded-md border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-black font-semibold dark:text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+          </div>
+          <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-white dark:text-gray-400">Email</label>
+            <input type="email" id="email" name="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+              class="w-full bg-claro dark:bg-gray-800 rounded-md border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-black font-semibold dark:text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+          </div>
+          <div class="relative mb-4">
+            <label for="message" class="leading-7 text-sm text-white dark:text-gray-400">Mensaje</label>
+            <textarea id="message" name="message"
+              class="w-full bg-white dark:bg-gray-800 rounded-md border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-black font-semibold dark:text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out" required></textarea>
+          </div>
+          <button type="submit" class="text-white rounded-md w-full bg-casual border-2 dark:border-0 py-2 px-6 focus:outline-none hover:bg-destacado text-lg">Enviar</button>
+          <p class="text-xs text-gray-400 text-opacity-90 mt-3">Gracias por tus comentarios</p>
+        </form>
+      </div>
+    </div>
+    
+  </section>
+  
+  <!--FOOTER-->
+  <footer class="bg-general bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-lg pb-12"
+    aria-labelledby="footer-heading">
+    <div
+      class="px-5 py-12 mx-auto flex flex-col items-center space-y-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-20">
+      <div class="flex justify-center md:order-last md:mb-0 space-x-6 mt-4 mb-2">
+        <span class="">
+          <a href="https://www.linkedin.com/in/tomaslangerduran/"><i
+              class="fa fa-linkedin-square text-white text-3xl hover:text-hover" aria-hidden="true"></i></a>
+        </span>
+        <span class="">
+          <a href="https://github.com/tomasild"><i class="fa fa-github-square text-white text-3xl hover:text-hover"
+              aria-hidden="true"></i></a>
+        </span>
+        <span class="">
+          <a href="https://twitter.com/tomas_ild"><i class="fa fa-twitter-square text-white text-3xl hover:text-hover"
+              aria-hidden="true"></i></a>
+        </span>
+      </div>
+      <p class="text-white text-center text-md mb-4">© 2023 Sitio web de <a href="#inicio" class="font-bold text-white hover:text-hover">tomas.ild</a>. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+  <script src="form.js"></script>
+  <script src="darkmode.js"></script>
+</body>
+</html>
