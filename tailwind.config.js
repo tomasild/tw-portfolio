@@ -4,11 +4,6 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        'lofi': "url('../dist/img/lofi-lg.png')",
-        'front': "url('../dist/img/front.jpg')",
-        'lofi': "url('../dist/img/lofi-lg.png')",
-      },
       backgroundColor: theme => ({
         ...theme('colors'), 
         "general": '#14213D',

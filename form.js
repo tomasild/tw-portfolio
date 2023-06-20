@@ -26,3 +26,29 @@ async function handleSubmit(event) {
         alert("Se produjo un error al enviar el formulario. Por favor, intenta nuevamente.");
     }
 }
+
+
+// Limpieza para prevenir scripts malicioso
+
+function limpiarHTML(texto) {
+    const etiquetasPermitidas = ['p', 'br', 'a']; // Lista de etiquetas permitidas
+    const parser = new DOMParser();
+    const documento = parser.parseFromString(texto, 'text/html');
+    const elementos = documento.querySelectorAll('*');
+
+    elementos.forEach(elemento => {
+      if (!etiquetasPermitidas.includes(elemento.tagName.toLowerCase())) {
+        elemento.parentNode.removeChild(elemento);
+      }
+    });
+
+    return documento.body.innerHTML;
+  }
+
+  const form = document.getElementById('contact-form');
+  const messageInput = document.getElementById('message');
+
+  form.addEventListener('submit', function (event) {
+    const cleanedMessage = limpiarHTML(messageInput.value);
+    messageInput.value = cleanedMessage;
+  });
