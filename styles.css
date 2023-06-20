@@ -1,6 +1,9 @@
 h1,h2,h3,a{
   font-family: 'Righteous', cursive;
 }
+.active{
+  background-color: #466EC3;
+}
 
 #music-player {
   display: flex;
