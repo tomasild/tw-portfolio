@@ -146,7 +146,7 @@ function activateLink(linkId) {
       <div class="container flex flex-col md:flex-row-reverse items-start justify-start md:justify-between">
         <div class="md:w-1/2 w-full md:ml-6 mb-8 md:mb-0">
           <div class="max-w-full mx-auto">
-            <img class="w-full md:w-full object-cover object-center rounded-xl" alt="hero" src="img/accesibilidad.jpg">
+            <img class="w-full md:w-full object-cover object-center rounded-xl" alt="persona con notebook ingresando al internet global" src="img/accesibilidad.jpg">
           </div>
         </div>
         <div class="md:w-1/2 w-full">
@@ -179,7 +179,7 @@ function activateLink(linkId) {
       <div class="container flex flex-col md:flex-row-reverse items-start justify-start md:justify-between">
         <div class="md:w-1/2 w-full md:ml-6 mb-8 md:mb-0">
           <div class="max-w-full mx-auto">
-            <img class="w-full md:w-full object-cover object-center rounded-xl" alt="hero" src="img/front.jpg">
+            <img class="w-full md:w-full object-cover object-center rounded-xl" alt="imagen isometrica o 3d, con notebook y taza de café al costado izquierdo" src="img/front.jpg">
           </div>
         </div>
         <div class="md:w-1/2 w-full">
@@ -196,7 +196,7 @@ function activateLink(linkId) {
       <div class="container flex flex-col md:flex-row-reverse items-start justify-start md:justify-between">
         <div class="md:w-1/2 w-full md:ml-6 mb-8 md:mb-0">
           <div class="max-w-full mx-auto">
-            <img class="w-full md:w-full object-cover object-center rounded-xl" alt="hero" src="img/evento.jpg">
+            <img class="w-full md:w-full object-cover object-center rounded-xl" alt="evento tecnologico con una persona dando la charla sobre el escenario principal" src="img/evento.jpg">
           </div>
         </div>
         <div class="md:w-1/2 w-full">
